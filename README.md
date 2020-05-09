@@ -43,3 +43,7 @@ Will search for the term "Neural Architecture Search" from the date `2018-01-01`
 `python cli.py "Neural Architecture Search" 2018-01-01 2020-05-02 23`
 
 Will return an error, since 23 is not a valid number of entries to search for according to arXiv search v0.5.6.
+
+# Tests
+
+Running `python run_tests.py` will run a comprehensive suite of tests for the Parser class.
