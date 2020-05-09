@@ -12,7 +12,7 @@ The REPL prompt will generate a link you can click that will download the CSV of
 # CLI
 
 ```
-usage: cli.py [-h] [--amount AMOUNT] search_term start_date end_date
+usage: cli.py [-h] [--amount AMOUNT] search_term [start_date] [end_date]
 
 arXivParser CLI
 
@@ -39,6 +39,10 @@ Will search for the term "Contextual Bandits" from the date `2013-06-02` until t
 `python cli.py "Neural Architecture Search" 2018-01-01 2020-05-02`
 
 Will search for the term "Neural Architecture Search" from the date `2018-01-01` until the date `2020-05-02`. It will report at most 50 results, the default parameter for amount.
+
+`python cli.py "Optimal Transport"  --amount 25`
+
+Will search for the term "Optimal Transport" from the day a week ago until today. It will report at most 25 results. But also valid is: `python cli.py "Optimal Transport"` which will return 50 results by default.
 
 `python cli.py "Neural Architecture Search" 2018-01-01 2020-05-02 23`
 
