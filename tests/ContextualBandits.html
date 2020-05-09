@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/0.16.6/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/0.16.6/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/0.16.6/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/0.16.6/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/0.16.6/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/0.16.6/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Advanced Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/0.16.6/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/0.16.6/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/0.16.6/js/notification.js"></script>
+
+    
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  </style>
+  <script type="text/javascript" src="https://arxiv-org.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-tqqyqk/b/20/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=3b3dcb4c"></script>
+
+    <script type="text/javascript">
+    window.ATL_JQ_PAGE_PROPS =  {
+    	"triggerFunction": function(showCollectorDialog) {
+    		//Requires that jQuery is available!
+    		$("#feedback-button").click(function(e) {
+    			e.preventDefault();
+    			showCollectorDialog();
+    		});
+    	},
+      fieldValues: {
+        "components": ["16000"],  // Search component.
+        "versions": ["14260"],  // Release search-0.5.6
+        "customfield_11401": window.location.href
+      }
+    };
+    </script>
+
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+    <!-- contains Cornell logo and sponsor statement -->
+<div class="attribution level is-marginless" role="banner">
+  <div class="level-left">
+    <a class="level-item" href="https://cornell.edu/"><img src="https://static.arxiv.org/static/base/0.16.6/images/cornell-reduced-white-SMALL.svg" alt="Cornell University" width="200" aria-label="logo" /></a>
+  </div>
+  <div class="level-right is-marginless"><p class="sponsors level-item is-marginless"><a href="https://confluence.cornell.edu/x/ALlRF">We gratefully acknowledge support from<br /> the Simons Foundation and member institutions.</a></p></div>
+</div>
+<!-- contains arXiv identity and search bar -->
+<div class="identity level is-marginless">
+  <div class="level-left">
+    <div class="level-item">
+      <a class="arxiv" href="https://arxiv.org/" aria-label="arxiv-logo"><img src="https://static.arxiv.org/static/base/0.16.6/images/arxiv-logo-web.svg" alt="arXiv" aria-label="logo" width="85" /></a>
+    </div>
+  </div>
+  
+  <div class="search-block level-right">
+    <form class="level-item mini-search" method="GET" action="https://arxiv.org/search">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input is-small" type="text" name="query" placeholder="Search..." aria-label="Search term or terms" />
+          <p class="help"><a href="https://arxiv.org/help">Help</a> | <a href="https://arxiv.org/search/advanced">Advanced Search</a></p>
+        </div>
+        <div class="control">
+          <div class="select is-small">
+            <select name="searchtype" aria-label="Field to search">
+              <option value="all" selected="selected">All fields</option>
+              <option value="title">Title</option>
+              <option value="author">Author</option>
+              <option value="abstract">Abstract</option>
+              <option value="comments">Comments</option>
+              <option value="journal_ref">Journal reference</option>
+              <option value="acm_class">ACM classification</option>
+              <option value="msc_class">MSC classification</option>
+              <option value="report_num">Report number</option>
+              <option value="paper_id">arXiv identifier</option>
+              <option value="doi">DOI</option>
+              <option value="orcid">ORCID</option>
+              <option value="author_id">arXiv author ID</option>
+              <option value="help">Help pages</option>
+              <option value="full_text">Full text</option>
+            </select>
+          </div>
+        </div>
+        <input type="hidden" name="source" value="header">
+        <button class="button is-small is-cul-darker">Search</button>
+      </div>
+    </form>
+  </div>
+</div> <!-- closes identity -->
+
+<div class="container">
+    <div class="user-tools is-size-7 has-text-right has-text-weight-bold" role="navigation" aria-label="User menu">
+      <a href="https://arxiv.org/login">Login</a>
+    </div>
+</div>
+    
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;25 of 44 results
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      <button class="button is-small" id="feedback-button">Feedback?</button>
+    </div>
+  </div>
+    <div class="content">
+      
+  
+    
+
+    <div class="columns">
+      <div class="column is-two-thirds-tablet">
+        <p style="margin-bottom: .5em">Query: <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;size=25">order: -announced_date_first; size: 25; date_range: from 2013-06-02 to 2016-06-02; include_cross_list: True; terms: AND all=Contextual Bandits</a></p>
+        <div class="buttons">
+          <a class="button is-link" href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;size=25">Refine query</a><a class="button" href="/search/advanced">New search</a>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-hidden-mobile">
+        <p class="has-text-right" style="margin-top: 1em">
+          
+          <a href="/search/?order=-announced_date_first&amp;size=25">Simple Search</a>
+          
+        </p>
+      </div>
+    </div>
+
+    
+        
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/advanced">
+      <div style="display: none;">
+        
+          
+            <input id="advanced" name="advanced" type="hidden" value="">
+          
+        
+          
+            <ul id="terms"><li><label for="terms-0">Terms-0</label> <table id="terms-0"><tr><th><label for="terms-0-term">Search term...</label></th><td><input id="terms-0-term" name="terms-0-term" type="text" value="Contextual Bandits"></td></tr><tr><th><label for="terms-0-operator">Operator</label></th><td><select id="terms-0-operator" name="terms-0-operator"><option selected value="AND">AND</option><option value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-0-field">Field</label></th><td><select id="terms-0-field" name="terms-0-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li></ul>
+          
+        
+          
+            <table id="classification"><tr><th><label for="classification-computer_science">Computer Science (cs)</label></th><td><input id="classification-computer_science" name="classification-computer_science" type="checkbox" value="y"></td></tr><tr><th><label for="classification-economics">Economics (econ)</label></th><td><input id="classification-economics" name="classification-economics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-eess">Electrical Engineering and Systems Science (eess)</label></th><td><input id="classification-eess" name="classification-eess" type="checkbox" value="y"></td></tr><tr><th><label for="classification-mathematics">Mathematics (math)</label></th><td><input id="classification-mathematics" name="classification-mathematics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics">Physics</label></th><td><input id="classification-physics" name="classification-physics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics_archives">Physics Archives</label></th><td><select id="classification-physics_archives" name="classification-physics_archives"><option selected value="all">all</option><option value="astro-ph">astro-ph</option><option value="cond-mat">cond-mat</option><option value="gr-qc">gr-qc</option><option value="hep-ex">hep-ex</option><option value="hep-lat">hep-lat</option><option value="hep-ph">hep-ph</option><option value="hep-th">hep-th</option><option value="math-ph">math-ph</option><option value="nlin">nlin</option><option value="nucl-ex">nucl-ex</option><option value="nucl-th">nucl-th</option><option value="physics">physics</option><option value="quant-ph">quant-ph</option></select></td></tr><tr><th><label for="classification-q_biology">Quantitative Biology (q-bio)</label></th><td><input id="classification-q_biology" name="classification-q_biology" type="checkbox" value="y"></td></tr><tr><th><label for="classification-q_finance">Quantitative Finance (q-fin)</label></th><td><input id="classification-q_finance" name="classification-q_finance" type="checkbox" value="y"></td></tr><tr><th><label for="classification-statistics">Statistics (stat)</label></th><td><input id="classification-statistics" name="classification-statistics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-include_cross_list">Include cross-list</label></th><td><ul id="classification-include_cross_list"><li><input checked id="classification-include_cross_list-0" name="classification-include_cross_list" type="radio" value="include"> <label for="classification-include_cross_list-0">Include cross-listed papers</label></li><li><input id="classification-include_cross_list-1" name="classification-include_cross_list" type="radio" value="exclude"> <label for="classification-include_cross_list-1">Exclude cross-listed papers</label></li></ul></td></tr></table>
+          
+        
+          
+            <table id="date"><tr><th><label for="date-filter_by">Filter by</label></th><td><ul id="date-filter_by"><li><input id="date-filter_by-0" name="date-filter_by" type="radio" value="all_dates"> <label for="date-filter_by-0">All dates</label></li><li><input id="date-filter_by-1" name="date-filter_by" type="radio" value="past_12"> <label for="date-filter_by-1">Past 12 months</label></li><li><input id="date-filter_by-2" name="date-filter_by" type="radio" value="specific_year"> <label for="date-filter_by-2">Specific year</label></li><li><input checked id="date-filter_by-3" name="date-filter_by" type="radio" value="date_range"> <label for="date-filter_by-3">Date range</label></li></ul></td></tr><tr><th><label for="date-year">Year</label></th><td><input id="date-year" name="date-year" type="text" value=""></td></tr><tr><th><label for="date-from_date">From</label></th><td><input id="date-from_date" name="date-from_date" type="text" value="2013-06-02"></td></tr><tr><th><label for="date-to_date">to</label></th><td><input id="date-to_date" name="date-to_date" type="text" value="2016-06-02"></td></tr><tr><th><label for="date-date_type">Apply to</label></th><td><ul id="date-date_type"><li><input checked id="date-date_type-0" name="date-date_type" type="radio" value="submitted_date"> <label for="date-date_type-0">Submission date (most recent)</label></li><li><input id="date-date_type-1" name="date-date_type" type="radio" value="submitted_date_first"> <label for="date-date_type-1">Submission date (original)</label></li><li><input id="date-date_type-2" name="date-date_type" type="radio" value="announced_date_first"> <label for="date-date_type-2">Announcement date</label></li></ul></td></tr></table>
+          
+        
+          
+        
+          
+        
+          
+            <input id="include_older_versions" name="include_older_versions" type="checkbox" value="y">
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option selected value="25">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option selected value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+        
+
+
+  <nav class="pagination is-small is-centered breathe-horizontal" role="navigation" aria-label="pagination">
+    
+    <a href=""
+      class="pagination-previous is-invisible">Previous
+    </a>
+    
+    
+      <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;advanced=&amp;size=25&amp;start=25"
+        class="pagination-next" >Next
+      </a>
+    
+    <ul class="pagination-list">
+
+      <li>
+        <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;advanced=&amp;size=25&amp;start=0"
+          class="pagination-link is-current"
+          aria-label="Goto page 1">1
+        </a>
+      </li>
+
+      
+        
+        <li>
+          <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;advanced=&amp;size=25&amp;start=25"
+            class="pagination-link "
+            aria-label="Page 2"
+            aria-current="page">2
+          </a>
+        </li>
+        
+      
+    </ul>
+  </nav>
+  
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1606.00313">arXiv:1606.00313</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1606.00313">pdf</a>, <a href="https://arxiv.org/ps/1606.00313">ps</a>, <a href="https://arxiv.org/format/1606.00313">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Improved Regret Bounds for Oracle-Based Adversarial <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandits</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Syrgkanis%2C+V">Vasilis Syrgkanis</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Luo%2C+H">Haipeng Luo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Krishnamurthy%2C+A">Akshay Krishnamurthy</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Schapire%2C+R+E">Robert E. Schapire</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1606.00313v1-abstract-short" style="display: inline;">
+        We give an oracle-based algorithm for the adversarial <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem, where either contexts are drawn i.i.d. or the sequence of contexts is known a priori, but where the losses are picked adversarially. Our algorithm is computationally efficient, assuming access to an offline optimization oracle, and enjoys&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1606.00313v1-abstract-full').style.display = 'inline'; document.getElementById('1606.00313v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1606.00313v1-abstract-full" style="display: none;">
+        We give an oracle-based algorithm for the adversarial <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem, where either contexts are drawn i.i.d. or the sequence of contexts is known a priori, but where the losses are picked adversarially. Our algorithm is computationally efficient, assuming access to an offline optimization oracle, and enjoys a regret of order $O((KT)^{\frac{2}{3}}(\log N)^{\frac{1}{3}})$, where $K$ is the number of actions, $T$ is the number of iterations and $N$ is the number of baseline policies. Our result is the first to break the $O(T^{\frac{3}{4}})$ barrier that is achieved by recently introduced algorithms. Breaking this barrier was left as a major open problem. Our analysis is based on the recent relaxation based approach of (Rakhlin and Sridharan, 2016).
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1606.00313v1-abstract-full').style.display = 'none'; document.getElementById('1606.00313v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 1 June, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> June 2016.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1605.05697">arXiv:1605.05697</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1605.05697">pdf</a>, <a href="https://arxiv.org/format/1605.05697">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Online Algorithms For Parameter Mean And Variance Estimation In Dynamic Regression Models
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Gomez-Uribe%2C+C+A">Carlos Alberto Gomez-Uribe</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1605.05697v1-abstract-short" style="display: inline;">
+        &hellip;online mean and variance parameter estimation for all these regression models in the context of time-dependent parameters. Lastly, we propose to use these algorithms in the <span class="search-hit mathjax">contextual</span> multi-armed <span class="search-hit mathjax">bandit</span> scenario, where so far model parameters are assumed static and observations univariate and Gaussian or Bernoulli. Bot&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1605.05697v1-abstract-full').style.display = 'inline'; document.getElementById('1605.05697v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1605.05697v1-abstract-full" style="display: none;">
+        We study the problem of estimating the parameters of a regression model from a set of observations, each consisting of a response and a predictor. The response is assumed to be related to the predictor via a regression model of unknown parameters. Often, in such models the parameters to be estimated are assumed to be constant. Here we consider the more general scenario where the parameters are allowed to evolve over time, a more natural assumption for many applications. We model these dynamics via a linear update equation with additive noise that is often used in a wide range of engineering applications, particularly in the well-known and widely used Kalman filter (where the system state it seeks to estimate maps to the parameter values here). We derive an approximate algorithm to estimate both the mean and the variance of the parameter estimates in an online fashion for a generic regression model. This algorithm turns out to be equivalent to the extended Kalman filter. We specialize our algorithm to the multivariate exponential family distribution to obtain a generalization of the generalized linear model (GLM). Because the common regression models encountered in practice such as logistic, exponential and multinomial all have observations modeled through an exponential family distribution, our results are used to easily obtain algorithms for online mean and variance parameter estimation for all these regression models in the context of time-dependent parameters. Lastly, we propose to use these algorithms in the <span class="search-hit mathjax">contextual</span> multi-armed <span class="search-hit mathjax">bandit</span> scenario, where so far model parameters are assumed static and observations univariate and Gaussian or Bernoulli. Both of these restrictions can be relaxed using the algorithms described here, which we combine with Thompson sampling to show the resulting performance on a simulation.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1605.05697v1-abstract-full').style.display = 'none'; document.getElementById('1605.05697v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 18 May, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2016.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1605.00176">arXiv:1605.00176</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1605.00176">pdf</a>, <a href="https://arxiv.org/format/1605.00176">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Stochastic <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandits</span> with Known Reward Functions
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Sakulkar%2C+P">Pranav Sakulkar</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Krishnamachari%2C+B">Bhaskar Krishnamachari</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1605.00176v2-abstract-short" style="display: inline;">
+        Many sequential decision-making problems in communication networks can be modeled as <span class="search-hit mathjax">contextual</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1605.00176v2-abstract-full').style.display = 'inline'; document.getElementById('1605.00176v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1605.00176v2-abstract-full" style="display: none;">
+        Many sequential decision-making problems in communication networks can be modeled as <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problems, which are natural extensions of the well-known multi-armed <span class="search-hit mathjax">bandit</span> problem. In <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problems, at each time, an agent observes some side information or context, pulls one arm and receives the reward for that arm. We consider a stochastic formulation where the context-reward tuples are independently drawn from an unknown distribution in each trial. Motivated by networking applications, we analyze a setting where the reward is a known non-linear function of the context and the chosen arm&#39;s current state. We first consider the case of discrete and finite context-spaces and propose DCB($ε$), an algorithm that we prove, through a careful analysis, yields regret (cumulative reward gap compared to a distribution-aware genie) scaling logarithmically in time and linearly in the number of arms that are not optimal for any context, improving over existing algorithms where the regret scales linearly in the total number of arms. We then study continuous context-spaces with Lipschitz reward functions and propose CCB($ε, δ$), an algorithm that uses DCB($ε$) as a subroutine. CCB($ε, δ$) reveals a novel regret-storage trade-off that is parametrized by $δ$. Tuning $δ$ to the time horizon allows us to obtain sub-linear regret bounds, while requiring sub-linear storage. By exploiting joint learning for all contexts we get regret bounds for CCB($ε, δ$) that are unachievable by any existing <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithm for continuous context-spaces. We also show similar performance bounds for the unknown horizon case.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1605.00176v2-abstract-full').style.display = 'none'; document.getElementById('1605.00176v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 6 May, 2016; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 30 April, 2016;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2016.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">A version of this technical report is under submission in IEEE/ACM Transactions on Networking</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1604.06743">arXiv:1604.06743</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1604.06743">pdf</a>, <a href="https://arxiv.org/format/1604.06743">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Latent <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandits</span> and their Application to Personalized Recommendations for New Users
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+L">Li Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Brunskill%2C+E">Emma Brunskill</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1604.06743v1-abstract-short" style="display: inline;">
+        Personalized recommendations for new users, also known as the cold-start problem, can be formulated as a <span class="search-hit mathjax">contextual</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1604.06743v1-abstract-full').style.display = 'inline'; document.getElementById('1604.06743v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1604.06743v1-abstract-full" style="display: none;">
+        Personalized recommendations for new users, also known as the cold-start problem, can be formulated as a <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem. Existing <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms generally rely on features alone to capture user variability. Such methods are inefficient in learning new users&#39; interests. In this paper we propose Latent <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandits</span>. We consider both the benefit of leveraging a set of learned latent user classes for new users, and how we can learn such latent classes from prior users. We show that our approach achieves a better regret bound than existing algorithms. We also demonstrate the benefit of our approach using a large real world dataset and a preliminary user study.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1604.06743v1-abstract-full').style.display = 'none'; document.getElementById('1604.06743v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 April, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2016.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">25th International Joint Conference on Artificial Intelligence (IJCAI 2016)</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1603.01870">arXiv:1603.01870</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1603.01870">pdf</a>, <a href="https://arxiv.org/format/1603.01870">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Information Retrieval">cs.IR</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Personalized Advertisement Recommendation: A Ranking Approach to Address the Ubiquitous Click Sparsity Problem
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chaudhuri%2C+S">Sougata Chaudhuri</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Theocharous%2C+G">Georgios Theocharous</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ghavamzadeh%2C+M">Mohammad Ghavamzadeh</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1603.01870v1-abstract-short" style="display: inline;">
+        &hellip;one of the ads. The user either clicks or ignores the ad and correspondingly, the system updates its recommendation policy. PAR problem is usually tackled by scalable \emph{<span class="search-hit mathjax">contextual</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1603.01870v1-abstract-full').style.display = 'inline'; document.getElementById('1603.01870v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1603.01870v1-abstract-full" style="display: none;">
+        We study the problem of personalized advertisement recommendation (PAR), which consist of a user visiting a system (website) and the system displaying one of $K$ ads to the user. The system uses an internal ad recommendation policy to map the user&#39;s profile (context) to one of the ads. The user either clicks or ignores the ad and correspondingly, the system updates its recommendation policy. PAR problem is usually tackled by scalable \emph{<span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span>} algorithms, where the policies are generally based on classifiers. A practical problem in PAR is extreme click sparsity, due to very few users actually clicking on ads. We systematically study the drawback of using <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms based on classifier-based policies, in face of extreme click sparsity. We then suggest an alternate policy, based on rankers, learnt by optimizing the Area Under the Curve (AUC) ranking loss, which can significantly alleviate the problem of click sparsity. We conduct extensive experiments on public datasets, as well as three industry proprietary datasets, to illustrate the improvement in click-through-rate (CTR) obtained by using the ranker-based policy over classifier-based policies.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1603.01870v1-abstract-full').style.display = 'none'; document.getElementById('1603.01870v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 6 March, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> March 2016.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Under review</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1602.02454">arXiv:1602.02454</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1602.02454">pdf</a>, <a href="https://arxiv.org/ps/1602.02454">ps</a>, <a href="https://arxiv.org/format/1602.02454">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Efficient Algorithms for Adversarial <span class="search-hit mathjax">Contextual</span> Learning
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Syrgkanis%2C+V">Vasilis Syrgkanis</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Krishnamurthy%2C+A">Akshay Krishnamurthy</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Schapire%2C+R+E">Robert E. Schapire</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1602.02454v1-abstract-short" style="display: inline;">
+        We provide the first oracle efficient sublinear regret algorithms for adversarial versions of the <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem. In this problem, the learner repeatedly makes an action on the basis of a context and receives reward for the chosen action, with the goal of achieving reward competitive with a large class of po&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1602.02454v1-abstract-full').style.display = 'inline'; document.getElementById('1602.02454v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1602.02454v1-abstract-full" style="display: none;">
+        We provide the first oracle efficient sublinear regret algorithms for adversarial versions of the <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem. In this problem, the learner repeatedly makes an action on the basis of a context and receives reward for the chosen action, with the goal of achieving reward competitive with a large class of policies. We analyze two settings: i) in the transductive setting the learner knows the set of contexts a priori, ii) in the small separator setting, there exists a small set of contexts such that any two policies behave differently in one of the contexts in the set. Our algorithms fall into the follow the perturbed leader family \cite{Kalai2005} and achieve regret $O(T^{3/4}\sqrt{K\log(N)})$ in the transductive setting and $O(T^{2/3} d^{3/4} K\sqrt{\log(N)})$ in the separator setting, where $K$ is the number of actions, $N$ is the number of baseline policies, and $d$ is the size of the separator. We actually solve the more general adversarial <span class="search-hit mathjax">contextual</span> semi-<span class="search-hit mathjax">bandit</span> linear optimization problem, whilst in the full information setting we address the even more general <span class="search-hit mathjax">contextual</span> combinatorial optimization. We provide several extensions and implications of our algorithms, such as switching regret and efficient learning with predictable sequences.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1602.02454v1-abstract-full').style.display = 'none'; document.getElementById('1602.02454v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 7 February, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2016.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1602.02196">arXiv:1602.02196</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1602.02196">pdf</a>, <a href="https://arxiv.org/ps/1602.02196">ps</a>, <a href="https://arxiv.org/format/1602.02196">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        BISTRO: An Efficient Relaxation-Based Method for <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandits</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Rakhlin%2C+A">Alexander Rakhlin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sridharan%2C+K">Karthik Sridharan</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1602.02196v1-abstract-short" style="display: inline;">
+        We present efficient algorithms for the problem of <span class="search-hit mathjax">contextual</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1602.02196v1-abstract-full').style.display = 'inline'; document.getElementById('1602.02196v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1602.02196v1-abstract-full" style="display: none;">
+        We present efficient algorithms for the problem of <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span> with i.i.d. covariates, an arbitrary sequence of rewards, and an arbitrary class of policies. Our algorithm BISTRO requires d calls to the empirical risk minimization (ERM) oracle per round, where d is the number of actions. The method uses unlabeled data to make the problem computationally simple. When the ERM problem itself is computationally hard, we extend the approach by employing multiplicative approximation algorithms for the ERM. The integrality gap of the relaxation only enters in the regret bound rather than the benchmark. Finally, we show that the adversarial version of the <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem is learnable (and efficient) whenever the full-information supervised online learning problem has a non-trivial regret guarantee (and efficient).
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1602.02196v1-abstract-full').style.display = 'none'; document.getElementById('1602.02196v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 5 February, 2016; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2016.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1512.09176">arXiv:1512.09176</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1512.09176">pdf</a>, <a href="https://arxiv.org/ps/1512.09176">ps</a>, <a href="https://arxiv.org/format/1512.09176">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computers and Society">cs.CY</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/TSP.2016.2595495">10.1109/TSP.2016.2595495 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Personalized Course Sequence Recommendations
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+J">Jie Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xing%2C+T">Tianwei Xing</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=van+der+Schaar%2C+M">Mihaela van der Schaar</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1512.09176v2-abstract-short" style="display: inline;">
+        &hellip;to graduate. The algorithm accounts for prerequisite requirements (typically present in higher level education) and course availability. Second, using the tools of multi-armed <span class="search-hit mathjax">bandits</span>, an algorithm is developed that can optimally recommend a course sequence that both reduces the time to graduate while also increasing the overall GPA of the student. The algor&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1512.09176v2-abstract-full').style.display = 'inline'; document.getElementById('1512.09176v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1512.09176v2-abstract-full" style="display: none;">
+        Given the variability in student learning it is becoming increasingly important to tailor courses as well as course sequences to student needs. This paper presents a systematic methodology for offering personalized course sequence recommendations to students. First, a forward-search backward-induction algorithm is developed that can optimally select course sequences to decrease the time required for a student to graduate. The algorithm accounts for prerequisite requirements (typically present in higher level education) and course availability. Second, using the tools of multi-armed <span class="search-hit mathjax">bandits</span>, an algorithm is developed that can optimally recommend a course sequence that both reduces the time to graduate while also increasing the overall GPA of the student. The algorithm dynamically learns how students with different <span class="search-hit mathjax">contextual</span> backgrounds perform for given course sequences and then recommends an optimal course sequence for new students. Using real-world student data from the UCLA Mechanical and Aerospace Engineering department, we illustrate how the proposed algorithms outperform other methods that do not include student <span class="search-hit mathjax">contextual</span> information when making course sequence recommendations.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1512.09176v2-abstract-full').style.display = 'none'; document.getElementById('1512.09176v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 11 January, 2016; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 30 December, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> December 2015.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1509.03005">arXiv:1509.03005</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1509.03005">pdf</a>, <a href="https://arxiv.org/format/1509.03005">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Neural and Evolutionary Computing">cs.NE</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Compatible Value Gradients for Reinforcement Learning of Continuous Deep Policies
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Balduzzi%2C+D">David Balduzzi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ghifary%2C+M">Muhammad Ghifary</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1509.03005v1-abstract-short" style="display: inline;">
+        &hellip;three neural networks that estimate the value function, its gradient, and determine the actor&#39;s policy respectively. We evaluate GProp on two challenging tasks: a <span class="search-hit mathjax">contextual</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1509.03005v1-abstract-full').style.display = 'inline'; document.getElementById('1509.03005v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1509.03005v1-abstract-full" style="display: none;">
+        This paper proposes GProp, a deep reinforcement learning algorithm for continuous policies with compatible function approximation. The algorithm is based on two innovations. Firstly, we present a temporal-difference based method for learning the gradient of the value-function. Secondly, we present the deviator-actor-critic (DAC) model, which comprises three neural networks that estimate the value function, its gradient, and determine the actor&#39;s policy respectively. We evaluate GProp on two challenging tasks: a <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem constructed from nonparametric regression datasets that is designed to probe the ability of reinforcement learning algorithms to accurately estimate gradients; and the octopus arm, a challenging reinforcement learning benchmark. GProp is competitive with fully supervised methods on the <span class="search-hit mathjax">bandit</span> task and achieves the best performance to date on the octopus arm.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1509.03005v1-abstract-full').style.display = 'none'; document.getElementById('1509.03005v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 10 September, 2015; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">27 pages</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1508.03326">arXiv:1508.03326</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1508.03326">pdf</a>, <a href="https://arxiv.org/ps/1508.03326">ps</a>, <a href="https://arxiv.org/format/1508.03326">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        A Survey on <span class="search-hit mathjax">Contextual</span> Multi-armed <span class="search-hit mathjax">Bandits</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+L">Li Zhou</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1508.03326v2-abstract-short" style="display: inline;">
+        In this survey we cover a few stochastic and adversarial <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms. We analyze each algorithm&#39;s assumption and regret bound.
+        
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1508.03326v2-abstract-full" style="display: none;">
+        In this survey we cover a few stochastic and adversarial <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms. We analyze each algorithm&#39;s assumption and regret bound.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1508.03326v2-abstract-full').style.display = 'none'; document.getElementById('1508.03326v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 1 February, 2016; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 13 August, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> August 2015.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1507.05800">arXiv:1507.05800</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1507.05800">pdf</a>, <a href="https://arxiv.org/ps/1507.05800">ps</a>, <a href="https://arxiv.org/format/1507.05800">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        <span class="search-hit mathjax">Bandit</span>-Based Task Assignment for Heterogeneous Crowdsourcing
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+H">Hao Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ma%2C+Y">Yao Ma</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sugiyama%2C+M">Masashi Sugiyama</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1507.05800v1-abstract-short" style="display: inline;">
+        &hellip;the name of sports teams, but not be familiar with cosmetics brands. We refer to this practical setting as heterogeneous crowdsourcing. In this paper, we propose a <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> formulation for task assignment in heterogeneous crowdsourcing, which is able to deal with the exploration-exploitation trade-off in worke&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1507.05800v1-abstract-full').style.display = 'inline'; document.getElementById('1507.05800v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1507.05800v1-abstract-full" style="display: none;">
+        We consider a task assignment problem in crowdsourcing, which is aimed at collecting as many reliable labels as possible within a limited budget. A challenge in this scenario is how to cope with the diversity of tasks and the task-dependent reliability of workers, e.g., a worker may be good at recognizing the name of sports teams, but not be familiar with cosmetics brands. We refer to this practical setting as heterogeneous crowdsourcing. In this paper, we propose a <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> formulation for task assignment in heterogeneous crowdsourcing, which is able to deal with the exploration-exploitation trade-off in worker selection. We also theoretically investigate the regret bounds for the proposed method, and demonstrate its practical usefulness experimentally.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1507.05800v1-abstract-full').style.display = 'none'; document.getElementById('1507.05800v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 21 July, 2015; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> July 2015.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1504.06937">arXiv:1504.06937</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1504.06937">pdf</a>, <a href="https://arxiv.org/format/1504.06937">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Algorithms with Logarithmic or Sublinear Regret for Constrained <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandits</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+H">Huasen Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Srikant%2C+R">R. Srikant</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+X">Xin Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jiang%2C+C">Chong Jiang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1504.06937v3-abstract-short" style="display: inline;">
+        We study <span class="search-hit mathjax">contextual</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1504.06937v3-abstract-full').style.display = 'inline'; document.getElementById('1504.06937v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1504.06937v3-abstract-full" style="display: none;">
+        We study <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span> with budget and time constraints, referred to as constrained <span class="search-hit mathjax">contextual</span> bandits.The time and budget constraints significantly complicate the exploration and exploitation tradeoff because they introduce complex coupling among contexts over time.Such coupling effects make it difficult to obtain oracle solutions that assume known statistics of <span class="search-hit mathjax">bandits</span>. To gain insight, we first study unit-cost systems with known context distribution. When the expected rewards are known, we develop an approximation of the oracle, referred to Adaptive-Linear-Programming (ALP), which achieves near-optimality and only requires the ordering of expected rewards. With these highly desirable features, we then combine ALP with the upper-confidence-bound (UCB) method in the general case where the expected rewards are unknown {\it a priori}. We show that the proposed UCB-ALP algorithm achieves logarithmic regret except for certain boundary cases. Further, we design algorithms and obtain similar regret analysis results for more general systems with unknown context distribution and heterogeneous costs. To the best of our knowledge, this is the first work that shows how to achieve logarithmic regret in constrained <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>. Moreover, this work also sheds light on the study of computationally efficient algorithms for general constrained <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1504.06937v3-abstract-full').style.display = 'none'; document.getElementById('1504.06937v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 19 October, 2015; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 27 April, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">36 pages, 4 figures; accepted by the 29th Annual Conference on Neural Information Processing Systems (NIPS), Montréal, Canada, Dec. 2015</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1504.04114">arXiv:1504.04114</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1504.04114">pdf</a>, <a href="https://arxiv.org/format/1504.04114">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Social and Information Networks">cs.SI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Actively Learning to Attract Followers on Twitter
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Levine%2C+N">Nir Levine</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mann%2C+T+A">Timothy A. Mann</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mannor%2C+S">Shie Mannor</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1504.04114v1-abstract-short" style="display: inline;">
+        &hellip;the problem of learning to acquire followers through normative user behavior, as opposed to the mass following policies applied by many bots. We formalize the problem as a <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem, in which we consider retweeting content to be the action chosen and each tweet (content) is accompanied by context. We de&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1504.04114v1-abstract-full').style.display = 'inline'; document.getElementById('1504.04114v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1504.04114v1-abstract-full" style="display: none;">
+        Twitter, a popular social network, presents great opportunities for on-line machine learning research. However, previous research has focused almost entirely on learning from passively collected data. We study the problem of learning to acquire followers through normative user behavior, as opposed to the mass following policies applied by many bots. We formalize the problem as a <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> problem, in which we consider retweeting content to be the action chosen and each tweet (content) is accompanied by context. We design reward signals based on the change in followers. The result of our month long experiment with 60 agents suggests that (1) aggregating experience across agents can adversely impact prediction accuracy and (2) the Twitter community&#39;s response to different actions is non-stationary. Our findings suggest that actively learning on-line can provide deeper insights about how to attract followers than machine learning over passively collected data alone.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1504.04114v1-abstract-full').style.display = 'none'; document.getElementById('1504.04114v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 16 April, 2015; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2015.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1503.02834">arXiv:1503.02834</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1503.02834">pdf</a>, <a href="https://arxiv.org/ps/1503.02834">ps</a>, <a href="https://arxiv.org/format/1503.02834">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Methodology">stat.ME</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1214/14-STS500">10.1214/14-STS500 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Doubly Robust Policy Evaluation and Optimization
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Dud%C3%ADk%2C+M">Miroslav Dudík</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Erhan%2C+D">Dumitru Erhan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Langford%2C+J">John Langford</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+L">Lihong Li</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1503.02834v1-abstract-short" style="display: inline;">
+        &hellip;where rewards are only partially observed, but can be modeled as a function of observed contexts and the chosen action by the decision maker. This setting, known as <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>, encompasses a wide variety of applications such as health care, content recommendation and Internet advertising. A central task is eval&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1503.02834v1-abstract-full').style.display = 'inline'; document.getElementById('1503.02834v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1503.02834v1-abstract-full" style="display: none;">
+        We study sequential decision making in environments where rewards are only partially observed, but can be modeled as a function of observed contexts and the chosen action by the decision maker. This setting, known as <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>, encompasses a wide variety of applications such as health care, content recommendation and Internet advertising. A central task is evaluation of a new policy given historic data consisting of contexts, actions and received rewards. The key challenge is that the past data typically does not faithfully represent proportions of actions taken by a new policy. Previous approaches rely either on models of rewards or models of the past policy. The former are plagued by a large bias whereas the latter have a large variance. In this work, we leverage the strengths and overcome the weaknesses of the two approaches by applying the doubly robust estimation technique to the problems of policy evaluation and optimization. We prove that this approach yields accurate value estimates when we have either a good (but not necessarily consistent) model of rewards or a good (but not necessarily consistent) model of past policy. Extensive empirical comparison demonstrates that the doubly robust estimation uniformly improves over existing techniques, achieving both lower variance in value estimation and better policies. As such, we expect the doubly robust approach to become common practice in policy evaluation and optimization.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1503.02834v1-abstract-full').style.display = 'none'; document.getElementById('1503.02834v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 10 March, 2015; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> March 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Published in at http://dx.doi.org/10.1214/14-STS500 the Statistical Science (http://www.imstat.org/sts/) by the Institute of Mathematical Statistics (http://www.imstat.org)</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+          <span class="has-text-black-bis has-text-weight-semibold">Report number:</span>
+          IMS-STS-STS500
+        
+
+        
+
+        
+      </p>
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        Statistical Science 2014, Vol. 29, No. 4, 485-511
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1502.06362">arXiv:1502.06362</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1502.06362">pdf</a>, <a href="https://arxiv.org/format/1502.06362">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        <span class="search-hit mathjax">Contextual</span> Dueling <span class="search-hit mathjax">Bandits</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Dud%C3%ADk%2C+M">Miroslav Dudík</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hofmann%2C+K">Katja Hofmann</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Schapire%2C+R+E">Robert E. Schapire</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Slivkins%2C+A">Aleksandrs Slivkins</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zoghi%2C+M">Masrour Zoghi</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1502.06362v2-abstract-short" style="display: inline;">
+        We consider the problem of learning to choose actions using <span class="search-hit mathjax">contextual</span> information when provided with limited feedback in the form of relative pairwise comparisons. We study this problem in the dueling-<span class="search-hit mathjax">bandits</span> framework of Yue et al. (2009), which we extend to incorporate context. Roughly, the learner&#39;s goal is to&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.06362v2-abstract-full').style.display = 'inline'; document.getElementById('1502.06362v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1502.06362v2-abstract-full" style="display: none;">
+        We consider the problem of learning to choose actions using <span class="search-hit mathjax">contextual</span> information when provided with limited feedback in the form of relative pairwise comparisons. We study this problem in the dueling-<span class="search-hit mathjax">bandits</span> framework of Yue et al. (2009), which we extend to incorporate context. Roughly, the learner&#39;s goal is to find the best policy, or way of behaving, in some space of policies, although &#34;best&#34; is not always so clearly defined. Here, we propose a new and natural solution concept, rooted in game theory, called a von Neumann winner, a randomized policy that beats or ties every other policy. We show that this notion overcomes important limitations of existing solutions, particularly the Condorcet winner which has typically been used in the past, but which requires strong and often unrealistic assumptions. We then present three efficient algorithms for online learning in our setting, and for approximating a von Neumann winner from batch-like data. The first of these algorithms achieves particularly low regret, even when data is adversarial, although its time and space requirements are linear in the size of the policy space. The other two algorithms require time and space only logarithmic in the size of the policy space when provided access to an oracle for solving classification problems on the space.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.06362v2-abstract-full').style.display = 'none'; document.getElementById('1502.06362v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 13 June, 2015; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 23 February, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">25 pages, 4 figures, Published at COLT 2015</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1502.03473">arXiv:1502.03473</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1502.03473">pdf</a>, <a href="https://arxiv.org/format/1502.03473">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Collaborative Filtering <span class="search-hit mathjax">Bandits</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+S">Shuai Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Karatzoglou%2C+A">Alexandros Karatzoglou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gentile%2C+C">Claudio Gentile</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1502.03473v7-abstract-short" style="display: inline;">
+        &hellip;set of items and users is very fluid. In this work, we investigate an adaptive clustering technique for content recommendation based on exploration-exploitation strategies in <span class="search-hit mathjax">contextual</span> multi-armed&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.03473v7-abstract-full').style.display = 'inline'; document.getElementById('1502.03473v7-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1502.03473v7-abstract-full" style="display: none;">
+        Classical collaborative filtering, and content-based filtering methods try to learn a static recommendation model given training data. These approaches are far from ideal in highly dynamic recommendation domains such as news recommendation and computational advertisement, where the set of items and users is very fluid. In this work, we investigate an adaptive clustering technique for content recommendation based on exploration-exploitation strategies in <span class="search-hit mathjax">contextual</span> multi-armed <span class="search-hit mathjax">bandit</span> settings. Our algorithm takes into account the collaborative effects that arise due to the interaction of the users with the items, by dynamically grouping users based on the items under consideration and, at the same time, grouping items based on the similarity of the clusterings induced over the users. The resulting algorithm thus takes advantage of preference patterns in the data in a way akin to collaborative filtering methods. We provide an empirical analysis on medium-size real-world datasets, showing scalability and increased prediction performance (as measured by click-through rate) over state-of-the-art methods for clustering <span class="search-hit mathjax">bandits</span>. We also provide a regret analysis within a standard linear stochastic noise setting.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.03473v7-abstract-full').style.display = 'none'; document.getElementById('1502.03473v7-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 31 May, 2016; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 11 February, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">The 39th SIGIR (SIGIR 2016)</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1502.02206">arXiv:1502.02206</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1502.02206">pdf</a>, <a href="https://arxiv.org/format/1502.02206">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Learning to Search Better Than Your Teacher
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chang%2C+K">Kai-Wei Chang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Krishnamurthy%2C+A">Akshay Krishnamurthy</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Agarwal%2C+A">Alekh Agarwal</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Daum%C3%A9%2C+H">Hal Daumé III</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Langford%2C+J">John Langford</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1502.02206v2-abstract-short" style="display: inline;">
+        &hellip;the learned policy: a local-optimality guarantee. Consequently, LOLS can improve upon the reference policy, unlike previous algorithms. This enables us to develop structured <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>, a partial information structured prediction setting with many potential applications.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.02206v2-abstract-full').style.display = 'inline'; document.getElementById('1502.02206v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1502.02206v2-abstract-full" style="display: none;">
+        Methods for learning to search for structured prediction typically imitate a reference policy, with existing theoretical guarantees demonstrating low regret compared to that reference. This is unsatisfactory in many applications where the reference policy is suboptimal and the goal of learning is to improve upon it. Can learning to search work even when the reference is poor?
+  We provide a new learning to search algorithm, LOLS, which does well relative to the reference policy, but additionally guarantees low regret compared to deviations from the learned policy: a local-optimality guarantee. Consequently, LOLS can improve upon the reference policy, unlike previous algorithms. This enables us to develop structured <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>, a partial information structured prediction setting with many potential applications.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.02206v2-abstract-full').style.display = 'none'; document.getElementById('1502.02206v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 20 May, 2015; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 7 February, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">In ICML 2015</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1502.01418">arXiv:1502.01418</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1502.01418">pdf</a>, <a href="https://arxiv.org/ps/1502.01418">ps</a>, <a href="https://arxiv.org/format/1502.01418">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        RELEAF: An Algorithm for Learning and Exploiting Relevance
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Tekin%2C+C">Cem Tekin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=van+der+Schaar%2C+M">Mihaela van der Schaar</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1502.01418v2-abstract-short" style="display: inline;">
+        &hellip;different actions. Our algorithm learns the relevant dimensions for each action, and makes decisions based in what it has learned. Formally, we build on the structure of a <span class="search-hit mathjax">contextual</span> multi-armed <span class="search-hit mathjax">bandit</span> by adding and exploiting a relevance relation. We prove a general regret bound for our algorithm whose time order depe&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.01418v2-abstract-full').style.display = 'inline'; document.getElementById('1502.01418v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1502.01418v2-abstract-full" style="display: none;">
+        Recommender systems, medical diagnosis, network security, etc., require on-going learning and decision-making in real time. These -- and many others -- represent perfect examples of the opportunities and difficulties presented by Big Data: the available information often arrives from a variety of sources and has diverse features so that learning from all the sources may be valuable but integrating what is learned is subject to the curse of dimensionality. This paper develops and analyzes algorithms that allow efficient learning and decision-making while avoiding the curse of dimensionality. We formalize the information available to the learner/decision-maker at a particular time as a context vector which the learner should consider when taking actions. In general the context vector is very high dimensional, but in many settings, the most relevant information is embedded into only a few relevant dimensions. If these relevant dimensions were known in advance, the problem would be simple -- but they are not. Moreover, the relevant dimensions may be different for different actions. Our algorithm learns the relevant dimensions for each action, and makes decisions based in what it has learned. Formally, we build on the structure of a <span class="search-hit mathjax">contextual</span> multi-armed <span class="search-hit mathjax">bandit</span> by adding and exploiting a relevance relation. We prove a general regret bound for our algorithm whose time order depends only on the maximum number of relevant dimensions among all the actions, which in the special case where the relevance relation is single-valued (a function), reduces to $\tilde{O}(T^{2(\sqrt{2}-1)})$; in the absence of a relevance relation, the best known <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms achieve regret $\tilde{O}(T^{(D+1)/(D+2)})$, where $D$ is the full dimension of the context vector.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1502.01418v2-abstract-full').style.display = 'none'; document.getElementById('1502.01418v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 7 February, 2015; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 4 February, 2015;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2015.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">to appear in IEEE Journal of Selected Topics in Signal Processing, 2015</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1409.8191">arXiv:1409.8191</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1409.8191">pdf</a>, <a href="https://arxiv.org/format/1409.8191">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Neural and Evolutionary Computing">cs.NE</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        A Neural Networks Committee for the <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandit</span> Problem
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Allesiardo%2C+R">Robin Allesiardo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Feraud%2C+R">Raphael Feraud</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bouneffouf%2C+D">Djallel Bouneffouf</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1409.8191v1-abstract-short" style="display: inline;">
+        This paper presents a new <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithm, NeuralBandit, which does not need hypothesis on stationarity of contexts and rewards. Several neural networks are trained to modelize the value of rewards knowing the context. Two variants, based on multi-experts approach, are proposed to choose online the paramete&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1409.8191v1-abstract-full').style.display = 'inline'; document.getElementById('1409.8191v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1409.8191v1-abstract-full" style="display: none;">
+        This paper presents a new <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithm, NeuralBandit, which does not need hypothesis on stationarity of contexts and rewards. Several neural networks are trained to modelize the value of rewards knowing the context. Two variants, based on multi-experts approach, are proposed to choose online the parameters of multi-layer perceptrons. The proposed algorithms are successfully tested on a large dataset with and without stationarity of rewards.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1409.8191v1-abstract-full').style.display = 'none'; document.getElementById('1409.8191v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 September, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2014.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">21st International Conference on Neural Information Processing</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">ACM Class:</span>
+          I.2
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1409.3653">arXiv:1409.3653</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1409.3653">pdf</a>, <a href="https://arxiv.org/format/1409.3653">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        On Minimax Optimal Offline Policy Evaluation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+L">Lihong Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Munos%2C+R">Remi Munos</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Szepesvari%2C+C">Csaba Szepesvari</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1409.3653v1-abstract-short" style="display: inline;">
+        &hellip;evaluation problem, where one aims to estimate the value of a target policy based on a sample of observations collected by another policy. We first consider the multi-armed <span class="search-hit mathjax">bandit</span> case, establish a minimax risk lower bound, and analyze the risk of two standard estimators. It is shown, and verified in simulation, that one is minimax optimal up to a constant,&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1409.3653v1-abstract-full').style.display = 'inline'; document.getElementById('1409.3653v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1409.3653v1-abstract-full" style="display: none;">
+        This paper studies the off-policy evaluation problem, where one aims to estimate the value of a target policy based on a sample of observations collected by another policy. We first consider the multi-armed <span class="search-hit mathjax">bandit</span> case, establish a minimax risk lower bound, and analyze the risk of two standard estimators. It is shown, and verified in simulation, that one is minimax optimal up to a constant, while another can be arbitrarily worse, despite its empirical success and popularity. The results are applied to related problems in <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span> and fixed-horizon Markov decision processes, and are also related to semi-supervised learning.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1409.3653v1-abstract-full').style.display = 'none'; document.getElementById('1409.3653v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 12 September, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> September 2014.
+      
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">ACM Class:</span>
+          I.2.6
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1408.2195">arXiv:1408.2195</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1408.2195">pdf</a>, <a href="https://arxiv.org/format/1408.2195">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Information Retrieval">cs.IR</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        R-UCB: a <span class="search-hit mathjax">Contextual</span> <span class="search-hit mathjax">Bandit</span> Algorithm for Risk-Aware Recommender Systems
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Bouneffouf%2C+D">Djallel Bouneffouf</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1408.2195v1-abstract-short" style="display: inline;">
+        Mobile Context-Aware Recommender Systems can be naturally modelled as an exploration/exploitation trade-off (exr/exp) problem, where the system has to choose between maximizing its expected rewards dealing with its current knowledge (exploitation) and learning more about the unknown user's preferences to improve its knowledge (exploration). This problem has been addressed by the reinforcement lear&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1408.2195v1-abstract-full').style.display = 'inline'; document.getElementById('1408.2195v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1408.2195v1-abstract-full" style="display: none;">
+        Mobile Context-Aware Recommender Systems can be naturally modelled as an exploration/exploitation trade-off (exr/exp) problem, where the system has to choose between maximizing its expected rewards dealing with its current knowledge (exploitation) and learning more about the unknown user&#39;s preferences to improve its knowledge (exploration). This problem has been addressed by the reinforcement learning community but they do not consider the risk level of the current user&#39;s situation, where it may be dangerous to recommend items the user may not desire in her current situation if the risk level is high. We introduce in this paper an algorithm named R-UCB that considers the risk level of the user&#39;s situation to adaptively balance between exr and exp. The detailed analysis of the experimental results reveals several important discoveries in the exr/exp behaviour.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1408.2195v1-abstract-full').style.display = 'none'; document.getElementById('1408.2195v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 10 August, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> August 2014.
+      
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">ACM Class:</span>
+          I.2
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1407.2806">arXiv:1407.2806</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1407.2806">pdf</a>, <a href="https://arxiv.org/format/1407.2806">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Information Retrieval">cs.IR</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        <span class="search-hit mathjax">Bandits</span> Warm-up Cold Recommender Systems
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Mary%2C+J">Jérémie Mary</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gaudel%2C+R">Romaric Gaudel</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Philippe%2C+P">Preux Philippe</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1407.2806v1-abstract-short" style="display: inline;">
+        We address the cold start problem in recommendation systems assuming no <span class="search-hit mathjax">contextual</span> information is available neither about users, nor items. We consider the case in which we only have access to a set of ratings of items by users. Most of the existing works consider a batch setting, and use cross-validation to tune parameters. The classical method consists in&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1407.2806v1-abstract-full').style.display = 'inline'; document.getElementById('1407.2806v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1407.2806v1-abstract-full" style="display: none;">
+        We address the cold start problem in recommendation systems assuming no <span class="search-hit mathjax">contextual</span> information is available neither about users, nor items. We consider the case in which we only have access to a set of ratings of items by users. Most of the existing works consider a batch setting, and use cross-validation to tune parameters. The classical method consists in minimizing the root mean square error over a training subset of the ratings which provides a factorization of the matrix of ratings, interpreted as a latent representation of items and users. Our contribution in this paper is 5-fold. First, we explicit the issues raised by this kind of batch setting for users or items with very few ratings. Then, we propose an online setting closer to the actual use of recommender systems; this setting is inspired by the <span class="search-hit mathjax">bandit</span> framework. The proposed methodology can be used to turn any recommender system dataset (such as Netflix, MovieLens,...) into a sequential dataset. Then, we explicit a strong and insightful link between <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms and matrix factorization; this leads us to a new algorithm that tackles the exploration/exploitation dilemma associated to the cold start problem in a strikingly new perspective. Finally, experimental evidence confirm that our algorithm is effective in dealing with the cold start problem on publicly available datasets. Overall, the goal of this paper is to bridge the gap between recommender systems based on matrix factorizations and those based on <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span>.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1407.2806v1-abstract-full').style.display = 'none'; document.getElementById('1407.2806v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 10 July, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> July 2014.
+      
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+          <span class="has-text-black-bis has-text-weight-semibold">Report number:</span>
+          RR-8563
+        
+
+        
+
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1405.7544">arXiv:1405.7544</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1405.7544">pdf</a>, <a href="https://arxiv.org/format/1405.7544">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Information Retrieval">cs.IR</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Cold-start Problems in Recommendation Systems via <span class="search-hit mathjax">Contextual</span>-<span class="search-hit mathjax">bandit</span> Algorithms
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Nguyen%2C+H+T">Hai Thanh Nguyen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mary%2C+J">Jérémie Mary</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Preux%2C+P">Philippe Preux</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1405.7544v1-abstract-short" style="display: inline;">
+        &hellip;perform poorly in many case. In this research, we provide a new look of this cold-start problem in recommendation systems. In fact, we cast this cold-start problem as a <span class="search-hit mathjax">contextual</span>-&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1405.7544v1-abstract-full').style.display = 'inline'; document.getElementById('1405.7544v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1405.7544v1-abstract-full" style="display: none;">
+        In this paper, we study a cold-start problem in recommendation systems where we have completely new users entered the systems. There is not any interaction or feedback of the new users with the systems previoustly, thus no ratings are available. Trivial approaches are to select ramdom items or the most popular ones to recommend to the new users. However, these methods perform poorly in many case. In this research, we provide a new look of this cold-start problem in recommendation systems. In fact, we cast this cold-start problem as a <span class="search-hit mathjax">contextual</span>-<span class="search-hit mathjax">bandit</span> problem. No additional information on new users and new items is needed. We consider all the past ratings of previous users as <span class="search-hit mathjax">contextual</span> information to be integrated into the recommendation framework. To solve this type of the cold-start problems, we propose a new efficient method which is based on the LinUCB algorithm for <span class="search-hit mathjax">contextual</span>-<span class="search-hit mathjax">bandit</span> problems. The experiments were conducted on three different publicly-available data sets, namely Movielens, Netflix and Yahoo!Music. The new proposed methods were also compared with other state-of-the-art techniques. Experiments showed that our new method significantly improves upon all these methods.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1405.7544v1-abstract-full').style.display = 'none'; document.getElementById('1405.7544v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 May, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2014.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1405.4758">arXiv:1405.4758</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1405.4758">pdf</a>, <a href="https://arxiv.org/format/1405.4758">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Lipschitz <span class="search-hit mathjax">Bandits</span>: Regret Lower Bounds and Optimal Algorithms
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Magureanu%2C+S">Stefan Magureanu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Combes%2C+R">Richard Combes</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Proutiere%2C+A">Alexandre Proutiere</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1405.4758v1-abstract-short" style="display: inline;">
+        We consider stochastic multi-armed <span class="search-hit mathjax">bandit</span> problems where the expected reward is a Lipschitz function of the arm, and where the set of arms is either discrete or continuous. For discrete Lipschitz&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1405.4758v1-abstract-full').style.display = 'inline'; document.getElementById('1405.4758v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1405.4758v1-abstract-full" style="display: none;">
+        We consider stochastic multi-armed <span class="search-hit mathjax">bandit</span> problems where the expected reward is a Lipschitz function of the arm, and where the set of arms is either discrete or continuous. For discrete Lipschitz <span class="search-hit mathjax">bandits</span>, we derive asymptotic problem specific lower bounds for the regret satisfied by any algorithm, and propose OSLB and CKL-UCB, two algorithms that efficiently exploit the Lipschitz structure of the problem. In fact, we prove that OSLB is asymptotically optimal, as its asymptotic regret matches the lower bound. The regret analysis of our algorithms relies on a new concentration inequality for weighted sums of KL divergences between the empirical distributions of rewards and their true distributions. For continuous Lipschitz <span class="search-hit mathjax">bandits</span>, we propose to first discretize the action space, and then apply OSLB or CKL-UCB, algorithms that provably exploit the structure efficiently. This approach is shown, through numerical experiments, to significantly outperform existing algorithms that directly deal with the continuous set of arms. Finally the results and algorithms are extended to <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandits</span> with similarities.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1405.4758v1-abstract-full').style.display = 'none'; document.getElementById('1405.4758v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 19 May, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2014.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">COLT 2014</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/1405.3536">arXiv:1405.3536</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/1405.3536">pdf</a>, <a href="https://arxiv.org/format/1405.3536">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">stat.ML</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Improving offline evaluation of <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> algorithms via bootstrapping techniques
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Nicol%2C+O">Olivier Nicol</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mary%2C+J">Jérémie Mary</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Preux%2C+P">Philippe Preux</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="search-hit">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="1405.3536v1-abstract-short" style="display: inline;">
+        &hellip;go at a very fast pace. This is a challenge for recommender systems (RS) to face this setting. Online learning algorithms seem to be the most straight forward solution. The <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> framework was introduced for that very purpose. In general the evaluation of a RS is a critical issue. Live evaluation is of- ten&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1405.3536v1-abstract-full').style.display = 'inline'; document.getElementById('1405.3536v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="1405.3536v1-abstract-full" style="display: none;">
+        In many recommendation applications such as news recommendation, the items that can be rec- ommended come and go at a very fast pace. This is a challenge for recommender systems (RS) to face this setting. Online learning algorithms seem to be the most straight forward solution. The <span class="search-hit mathjax">contextual</span> <span class="search-hit mathjax">bandit</span> framework was introduced for that very purpose. In general the evaluation of a RS is a critical issue. Live evaluation is of- ten avoided due to the potential loss of revenue, hence the need for offline evaluation methods. Two options are available. Model based meth- ods are biased by nature and are thus difficult to trust when used alone. Data driven methods are therefore what we consider here. Evaluat- ing online learning algorithms with past data is not simple but some methods exist in the litera- ture. Nonetheless their accuracy is not satisfac- tory mainly due to their mechanism of data re- jection that only allow the exploitation of a small fraction of the data. We precisely address this issue in this paper. After highlighting the limita- tions of the previous methods, we present a new method, based on bootstrapping techniques. This new method comes with two important improve- ments: it is much more accurate and it provides a measure of quality of its estimation. The latter is a highly desirable property in order to minimize the risks entailed by putting online a RS for the first time. We provide both theoretical and ex- perimental proofs of its superiority compared to state-of-the-art methods, as well as an analysis of the convergence of the measure of quality.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('1405.3536v1-abstract-full').style.display = 'none'; document.getElementById('1405.3536v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 14 May, 2014; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> May 2014.
+      
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        International Conference on Machine Learning 32 (2014)
+      </p>
+    
+  </li>
+
+</ol>
+
+
+  <nav class="pagination is-small is-centered breathe-horizontal" role="navigation" aria-label="pagination">
+    
+    <a href=""
+      class="pagination-previous is-invisible">Previous
+    </a>
+    
+    
+      <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;advanced=&amp;size=25&amp;start=25"
+        class="pagination-next" >Next
+      </a>
+    
+    <ul class="pagination-list">
+
+      <li>
+        <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;advanced=&amp;size=25&amp;start=0"
+          class="pagination-link is-current"
+          aria-label="Goto page 1">1
+        </a>
+      </li>
+
+      
+        
+        <li>
+          <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-to_date=2016-06-02&amp;date-from_date=2013-06-02&amp;terms-0-field=all&amp;terms-0-term=Contextual+Bandits&amp;order=-announced_date_first&amp;date-year=&amp;date-date_type=submitted_date&amp;abstracts=show&amp;classification-physics_archives=all&amp;advanced=&amp;size=25&amp;start=25"
+            class="pagination-link "
+            aria-label="Page 2"
+            aria-current="page">2
+          </a>
+        </li>
+        
+      
+    </ul>
+  </nav>
+  
+
+    
+  
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+        <button class="button is-small" id="feedback-button">Feedback?</button>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    
+    <div class="columns is-desktop" role="navigation" aria-label="Secondary">
+  <!-- MetaColumn 1 -->
+  <div class="column">
+    <div class="columns is-mobile">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://arxiv.org/about">About arXiv</a></li>
+          <li><a href="https://arxiv.org/about/people/leadership_team">Leadership Team</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-white" role="presentation"><title>contact arXiv</title><desc>Click here to contact arXiv</desc><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+            <a href="https://arxiv.org/help/contact"> Contact</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-white" role="presentation"><title>arXiv Twitter</title><desc>arXiv Twitter</desc><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+            <a href="https://twitter.com/arxiv"> <span class="is-hidden-mobile">Follow us on</span> Twitter</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 1 -->
+  <!-- MetaColumn 2 -->
+  <div class="column">
+    <div class="columns is-mobile">
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://arxiv.org/help">Help</a></li>
+          <li><a href="https://arxiv.org/help/policies/privacy_policy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul class="nav-spaced">
+          <li><a href="https://blogs.cornell.edu/arxiv">Blog</a></li>
+          <li><a href="https://arxiv.org/help/subscribe"> Subscribe</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end MetaColumn 2 -->
+</div>
+
+<div class="columns" style="border-top: 1px solid #979797">
+  <div class="column">
+    <div class="columns">
+      <div class="column">
+        <p class="help">arXiv&#174; is a registered trademark of Cornell University.</p>
+      </div>
+      <div class="column sorry-app-links">
+        <p class="help">
+          <a class="button is-link is-outlined" href="https://status.arxiv.org" target="_blank">arXiv Operational Status <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="icon filter-dark_grey" role="presentation"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a><br>
+          Get status notifications via
+          <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/email/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon filter-white" role="presentation"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>email</a>
+          or <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/slack/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon filter-white" role="presentation"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>slack</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <p class="help">If you have a disability and are having trouble accessing information
+      on this website or need materials in an alternate format, contact
+      <a href="mailto:web-accessibility@cornell.edu">web-accessibility@cornell.edu</a> for
+       assistance.</p>
+  </div>
+</div>
+    
+  </footer>
+  </body>
+</html>
