@@ -7,7 +7,7 @@ I have an API version of this parser running on my personal python box (mau.pyth
 
 # CLI
 
-'''
+```
 usage: cli.py [-h] [--amount AMOUNT] search_term start_date end_date
 
 arXivParser CLI
@@ -23,4 +23,4 @@ optional arguments:
   -h, --help       show this help message and exit
   --amount AMOUNT  Maximum number of articles to search for. Due to arXiv
                    limitations, this must be 25, 50, 100, or 200.
-'''
+```
