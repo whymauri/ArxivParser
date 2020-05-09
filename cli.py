@@ -97,16 +97,20 @@ def make_command_line_parser():
       'start_date',
       help='The start of the date range used to search for articles.' +
       'Default is today.',
+      const=week_ago.strftime('%Y-%m-%d'),
       default=week_ago.strftime('%Y-%m-%d'),
-      type=arxiv_valid_date
+      type=arxiv_valid_date,
+      nargs='?'
       )
 
   parser.add_argument(
       'end_date',
       help='The end of the date range used to search for articles.' +
       'Default is a week ago.',
+      const=today.strftime('%Y-%m-%d'),
       default=today.strftime('%Y-%m-%d'),
-      type=arxiv_valid_date
+      type=arxiv_valid_date,
+      nargs='?'
       )
 
   parser.add_argument(
