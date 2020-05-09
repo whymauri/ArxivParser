@@ -95,8 +95,8 @@ def make_command_line_parser():
 
   parser.add_argument(
       'start_date',
-      help='The start of the date range used to search for articles.' +
-      'Default is today.',
+      help='The start of the date range used to search for articles. ' +
+      'Default is today. Expected format is (YYYY-MM-DD).',
       const=week_ago.strftime('%Y-%m-%d'),
       default=week_ago.strftime('%Y-%m-%d'),
       type=arxiv_valid_date,
@@ -105,8 +105,8 @@ def make_command_line_parser():
 
   parser.add_argument(
       'end_date',
-      help='The end of the date range used to search for articles.' +
-      'Default is a week ago.',
+      help='The end of the date range used to search for articles. ' +
+      'Default is a week ago. Expected format is (YYYY-MM-DD).',
       const=today.strftime('%Y-%m-%d'),
       default=today.strftime('%Y-%m-%d'),
       type=arxiv_valid_date,
