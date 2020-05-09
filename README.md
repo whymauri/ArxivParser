@@ -7,6 +7,8 @@ I have an API version of this parser running on my personal python box (mau.pyth
 
 You can edit the shared REPL. REPL will redirect you to a personal copy of the REPL code. If it hangs, just give it a reload.
 
+The REPL prompt will generate a link you can click that will download the CSV of the given search entry. It will be generically titled, `download.csv`.
+
 # CLI
 
 ```
