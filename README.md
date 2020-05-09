@@ -18,10 +18,10 @@ arXivParser CLI
 
 positional arguments:
   search_term      The search term you're using to find articles.
-  start_date       The start of the date range used to search for
-                   articles.Default is today.
-  end_date         The end of the date range used to search for
-                   articles.Default is a week ago.
+  start_date       The start of the date range used to search for articles.
+                   Default is today. Expected format is (YYYY-MM-DD).
+  end_date         The end of the date range used to search for articles.
+                   Default is a week ago. Expected format is (YYYY-MM-DD).
 
 optional arguments:
   -h, --help       show this help message and exit
