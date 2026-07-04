@@ -17,9 +17,11 @@ model.save("embedding.npz")         # single compressed file
 model = load("embedding.npz")       # ready to transform again
 ```
 
-`ParametricUMAP` learns an MLP encoder (manual backprop, still NumPy-only):
-`transform` is a forward pass and `save` stores just the weights — the file
-is ~30 kB regardless of training set size.
+All three algorithms also come in parametric form — `ParametricUMAP`,
+`ParametricTriMap`, and `ParametricPaCMAP` learn an MLP encoder through
+their respective losses (manual backprop, still NumPy-only): `transform`
+is a forward pass and `save` stores just the weights — the file is ~30 kB
+regardless of training set size.
 
 A learned classifier on top of any embedder is one object with the same
 one-file save/load:
@@ -44,12 +46,12 @@ clf.predict_proba(X_new)
 | Standard UMAP (fuzzy simplicial set, SGD + negative sampling) | done |
 | Standard TriMap (weighted triplets, full-batch Adam) | done |
 | Standard PaCMAP (NB/MN/FP pairs, three-phase schedule) | done |
-| ParametricUMAP (MLP encoder, weights-only save, forward-pass inference) | done |
+| Parametric UMAP / TriMap / PaCMAP (MLP encoder, weights-only save, forward-pass inference) | done |
 | KNNClassifier (learned classifier over any embedder, one-file save/load) | done |
 | Benchmarks vs. reference implementations | done (`benchmarks/`) |
 | bincount scatter optimization (1.6-1.9x faster fits) | done |
 | Approximate kNN for large N | planned |
-| Parametric TriMap/PaCMAP, GPU/TPU backend | planned |
+| GPU/TPU backend | planned |
 
 ## Benchmarks
 

@@ -18,7 +18,14 @@ import time
 
 import numpy as np
 
-from simple_maps import PaCMAP, ParametricUMAP, TriMap, UMAP
+from simple_maps import (
+    PaCMAP,
+    ParametricPaCMAP,
+    ParametricTriMap,
+    ParametricUMAP,
+    TriMap,
+    UMAP,
+)
 from simple_maps.datasets import gaussian_blobs, swiss_roll
 from simple_maps.metrics import knn_preservation
 
@@ -50,6 +57,8 @@ def candidates(X_train):
     yield "simple-maps TriMap", lambda: TriMap(random_state=0), plain
     yield "simple-maps PaCMAP", lambda: PaCMAP(random_state=0), plain
     yield "simple-maps ParamUMAP", lambda: ParametricUMAP(random_state=0), plain
+    yield "simple-maps ParamTriMap", lambda: ParametricTriMap(random_state=0), plain
+    yield "simple-maps ParamPaCMAP", lambda: ParametricPaCMAP(random_state=0), plain
 
     try:
         import umap as umap_learn

@@ -1,7 +1,16 @@
 import numpy as np
 import pytest
 
-from simple_maps import KNNClassifier, PaCMAP, ParametricUMAP, TriMap, UMAP, load
+from simple_maps import (
+    KNNClassifier,
+    PaCMAP,
+    ParametricPaCMAP,
+    ParametricTriMap,
+    ParametricUMAP,
+    TriMap,
+    UMAP,
+    load,
+)
 from simple_maps.datasets import gaussian_blobs
 
 EMBEDDERS = [
@@ -9,8 +18,10 @@ EMBEDDERS = [
     lambda: TriMap(n_iters=150, random_state=0),
     lambda: PaCMAP(n_iters=200, random_state=0),
     lambda: ParametricUMAP(n_steps=400, random_state=0),
+    lambda: ParametricTriMap(n_steps=400, random_state=0),
+    lambda: ParametricPaCMAP(n_steps=400, random_state=0),
 ]
-IDS = ["UMAP", "TriMap", "PaCMAP", "ParametricUMAP"]
+IDS = ["UMAP", "TriMap", "PaCMAP", "ParametricUMAP", "ParametricTriMap", "ParametricPaCMAP"]
 
 
 @pytest.fixture(scope="module")

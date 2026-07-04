@@ -42,21 +42,35 @@ restores any estimator. No pickle: the format is inspectable, versioned
 (`format_version`), and safe to load (`allow_pickle=False`). Parametric
 models will store weights instead of training data under the same format.
 
-### Parametric formulation (v0.2)
+### Parametric formulations (v0.2-v0.3)
 
-`ParametricUMAP` replaces the free embedding coordinates with a 2-hidden-
-layer ReLU MLP (`d -> hidden -> hidden -> n_components`) and backpropagates
-the UMAP cross-entropy gradients through it — manual backprop, still
-NumPy-only. Training samples mini-batches of graph edges and only
-forward/backprops the rows a batch touches, so step cost is bounded by
-`batch_edges` regardless of n. Consequences:
+All three algorithms have parametric variants that replace the free
+embedding coordinates with a 2-hidden-layer ReLU MLP
+(`d -> hidden -> hidden -> n_components`) and backpropagate the loss
+gradients through it — manual backprop, still NumPy-only.
 
+`ParametricEmbedding` owns the shared machinery (network, training loop,
+weights-only serialization); each loss is a subclass implementing three
+hooks: `_prepare` builds the loss structure from the data (fuzzy graph /
+triplets / pair sets), `_sample_batch` draws one step's mini-batch of loss
+terms, and `_batch_grad` computes dL/dY. The training loop forward/
+backprops only the rows a batch touches, so step cost is bounded by
+`batch_size` regardless of n.
+
+- `ParametricUMAP`: cross-entropy over graph edges + negative sampling.
+- `ParametricTriMap`: the weighted triplet ratio loss (same gradient as
+  the non-parametric implementation, scattered batch-locally).
+- `ParametricPaCMAP`: the three pair losses under the phase schedule;
+  pair sets are sub-batched proportionally to their sizes each step.
+
+Consequences:
 - `transform` is a forward pass: no stored training data, no kNN query.
 - `save` writes weights + input scaling only; file size is independent of
   training set size (~30 kB at default width, vs O(n * d) for the
   non-parametric models and for pickled umap-learn).
-- The same construction extends to TriMap/PaCMAP losses later — the pair
-  gradients are already computed against embedding coordinates.
+- Quality on swiss roll (n=1000, knn@10): 0.70/0.58/0.68 for parametric
+  UMAP/TriMap/PaCMAP vs 0.73/0.67/0.78 non-parametric — the usual small
+  parametric gap, in exchange for O(1)-in-n inference and serialization.
 
 ### Learned classifier (v0.2)
 
@@ -107,8 +121,8 @@ today — O(n^2 d) — and the first thing to replace.
 2. ~~Standard UMAP, TriMap, PaCMAP + benchmark vs. existing~~ (v0.1)
 3. Optimize training speed: ~~bincount scatter~~ (v0.2); still open:
    float32 path, approximate kNN for large N.
-4. Parametric formulations: ~~ParametricUMAP (NumPy MLP encoder)~~ (v0.2);
-   still open: parametric TriMap/PaCMAP losses, and choosing the single
-   accelerator backend (leaning Jax: `jax.numpy` is a near-drop-in for the
-   current code and covers GPU/CPU/TPU) with NumPy kept as the
-   no-dependency fallback.
+4. Parametric formulations: ~~ParametricUMAP~~ (v0.2), ~~ParametricTriMap,
+   ParametricPaCMAP~~ (v0.3, shared `ParametricEmbedding` base); still
+   open: choosing the single accelerator backend (leaning Jax:
+   `jax.numpy` is a near-drop-in for the current code and covers
+   GPU/CPU/TPU) with NumPy kept as the no-dependency fallback.
