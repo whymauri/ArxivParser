@@ -42,6 +42,30 @@ restores any estimator. No pickle: the format is inspectable, versioned
 (`format_version`), and safe to load (`allow_pickle=False`). Parametric
 models will store weights instead of training data under the same format.
 
+### Parametric formulation (v0.2)
+
+`ParametricUMAP` replaces the free embedding coordinates with a 2-hidden-
+layer ReLU MLP (`d -> hidden -> hidden -> n_components`) and backpropagates
+the UMAP cross-entropy gradients through it — manual backprop, still
+NumPy-only. Training samples mini-batches of graph edges and only
+forward/backprops the rows a batch touches, so step cost is bounded by
+`batch_edges` regardless of n. Consequences:
+
+- `transform` is a forward pass: no stored training data, no kNN query.
+- `save` writes weights + input scaling only; file size is independent of
+  training set size (~30 kB at default width, vs O(n * d) for the
+  non-parametric models and for pickled umap-learn).
+- The same construction extends to TriMap/PaCMAP losses later — the pair
+  gradients are already computed against embedding coordinates.
+
+### Learned classifier (v0.2)
+
+`KNNClassifier(embedder)` is the production pipeline in one object: embed,
+inverse-distance-weighted kNN vote in embedding space, `predict_proba`,
+and one-file save/load that delegates embedder state via
+`_state_arrays()/_load_state()` so it works identically for parametric
+and non-parametric embedders (arbitrary label dtypes supported).
+
 ### Algorithms
 
 - **UMAP** (`umap_.py`): faithful to the paper/umap-learn — smooth-kNN
@@ -68,8 +92,9 @@ today — O(n^2 d) — and the first thing to replace.
 
 - TriMap uses Adam (lr=0.1) instead of delta-bar-delta; quality matches on
   benchmarks but is slower than reference and is the slowest of the three.
-- `np.add.at` is the scatter bottleneck in all three optimizers; a
-  `bincount`-based scatter or the backend port is the known fix.
+- ~~`np.add.at` is the scatter bottleneck~~: replaced with per-column
+  `np.bincount` scatter (`_scatter.py`) — 1.6-1.9x faster fits for
+  TriMap/PaCMAP, verified bit-compatible against `np.add.at` in tests.
 - UMAP negative sampling applies a fixed `negative_sample_rate` per sampled
   edge per epoch (umap-learn amortizes with a second per-edge schedule);
   effect is the same in expectation.
@@ -78,10 +103,12 @@ today — O(n^2 d) — and the first thing to replace.
 
 ## Roadmap
 
-1. ~~Core ops: kNN search, distance metrics~~ (v0)
-2. ~~Standard UMAP, TriMap, PaCMAP + benchmark vs. existing~~ (v0)
-3. Optimize training speed: bincount scatter, float32 path, approximate
-   kNN for large N.
-4. Parametric UMAP; choose the single backend (leaning Jax: `jax.numpy` is
-   a near-drop-in for the current code and covers GPU/CPU/TPU) with NumPy
-   kept as the no-dependency fallback.
+1. ~~Core ops: kNN search, distance metrics~~ (v0.1)
+2. ~~Standard UMAP, TriMap, PaCMAP + benchmark vs. existing~~ (v0.1)
+3. Optimize training speed: ~~bincount scatter~~ (v0.2); still open:
+   float32 path, approximate kNN for large N.
+4. Parametric formulations: ~~ParametricUMAP (NumPy MLP encoder)~~ (v0.2);
+   still open: parametric TriMap/PaCMAP losses, and choosing the single
+   accelerator backend (leaning Jax: `jax.numpy` is a near-drop-in for the
+   current code and covers GPU/CPU/TPU) with NumPy kept as the
+   no-dependency fallback.

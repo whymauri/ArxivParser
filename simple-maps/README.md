@@ -6,7 +6,7 @@ The entire library depends on **NumPy and nothing else**. No Annoy, no
 PyNNDescent, no numba, no scipy — `pip install numpy` and everything works.
 
 ```python
-from simple_maps import UMAP, TriMap, PaCMAP, load
+from simple_maps import UMAP, TriMap, PaCMAP, ParametricUMAP, load
 
 model = PaCMAP(random_state=0)
 Y = model.fit_transform(X)          # (n, 2) embedding
@@ -17,7 +17,26 @@ model.save("embedding.npz")         # single compressed file
 model = load("embedding.npz")       # ready to transform again
 ```
 
-## What's here (v0)
+`ParametricUMAP` learns an MLP encoder (manual backprop, still NumPy-only):
+`transform` is a forward pass and `save` stores just the weights — the file
+is ~30 kB regardless of training set size.
+
+A learned classifier on top of any embedder is one object with the same
+one-file save/load:
+
+```python
+from simple_maps import KNNClassifier, ParametricUMAP, load
+
+clf = KNNClassifier(ParametricUMAP(random_state=0))
+clf.fit(X_train, y_train)
+clf.save("clf.npz")
+
+clf = load("clf.npz")
+clf.predict(X_new)                  # milliseconds
+clf.predict_proba(X_new)
+```
+
+## What's here
 
 | Piece | Status |
 | --- | --- |
@@ -25,10 +44,12 @@ model = load("embedding.npz")       # ready to transform again
 | Standard UMAP (fuzzy simplicial set, SGD + negative sampling) | done |
 | Standard TriMap (weighted triplets, full-batch Adam) | done |
 | Standard PaCMAP (NB/MN/FP pairs, three-phase schedule) | done |
-| Benchmarks vs. reference implementations | done (`benchmarks/run_benchmarks.py`) |
+| ParametricUMAP (MLP encoder, weights-only save, forward-pass inference) | done |
+| KNNClassifier (learned classifier over any embedder, one-file save/load) | done |
+| Benchmarks vs. reference implementations | done (`benchmarks/`) |
+| bincount scatter optimization (1.6-1.9x faster fits) | done |
 | Approximate kNN for large N | planned |
-| Speed optimization pass | planned |
-| Parametric UMAP + GPU/TPU backend | planned |
+| Parametric TriMap/PaCMAP, GPU/TPU backend | planned |
 
 ## Benchmarks
 

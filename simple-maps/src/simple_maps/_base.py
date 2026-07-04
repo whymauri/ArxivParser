@@ -71,29 +71,49 @@ class BaseEmbedding:
     def get_config(self) -> dict:
         return {key: getattr(self, key) for key in self._config_keys}
 
-    def save(self, path: str) -> None:
+    def _check_fitted(self) -> None:
         if not hasattr(self, "embedding_"):
-            raise RuntimeError("nothing to save: model is not fitted")
+            raise RuntimeError("model is not fitted")
+
+    def _state_arrays(self) -> dict:
+        """Arrays that must survive a save/load round trip.
+
+        Non-parametric models need the training data (transform is kNN
+        interpolation against it); parametric models override this to
+        store weights instead.
+        """
+        self._check_fitted()
+        return {
+            "X_train": self._X_train.astype(np.float32),
+            "embedding": self.embedding_.astype(np.float32),
+        }
+
+    def _load_state(self, data, prefix: str = "") -> None:
+        self._X_train = data[prefix + "X_train"].astype(np.float64)
+        self.embedding_ = data[prefix + "embedding"].astype(np.float64)
+
+    def save(self, path: str) -> None:
         np.savez_compressed(
             path,
             format_version=_FORMAT_VERSION,
             estimator=type(self).__name__,
             config=json.dumps(self.get_config()),
-            X_train=self._X_train.astype(np.float32),
-            embedding=self.embedding_.astype(np.float32),
+            **self._state_arrays(),
         )
 
+    @classmethod
+    def _from_npz(cls, data) -> "BaseEmbedding":
+        model = cls(**json.loads(str(data["config"])))
+        model._load_state(data)
+        return model
 
-def load(path: str) -> BaseEmbedding:
-    """Load any fitted simple-maps estimator saved with ``model.save``."""
+
+def load(path: str):
+    """Load any fitted simple-maps model saved with ``model.save``."""
     from . import _ESTIMATORS
 
     with np.load(path, allow_pickle=False) as data:
         name = str(data["estimator"])
         if name not in _ESTIMATORS:
             raise ValueError(f"unknown estimator {name!r} in {path}")
-        config = json.loads(str(data["config"]))
-        model = _ESTIMATORS[name](**config)
-        model._X_train = data["X_train"].astype(np.float64)
-        model.embedding_ = data["embedding"].astype(np.float64)
-    return model
+        return _ESTIMATORS[name]._from_npz(data)

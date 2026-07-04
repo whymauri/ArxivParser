@@ -12,6 +12,7 @@ from __future__ import annotations
 import numpy as np
 
 from ._base import BaseEmbedding
+from ._scatter import scatter_add
 from .initialization import pca_init, random_init
 from .neighbors import knn
 from .optim import Adam
@@ -82,8 +83,7 @@ def _pair_grad_attract(
     d_tilde = 1.0 + np.einsum("ij,ij->i", diff, diff)
     coeff = weight * 2.0 * denom_const / (denom_const + d_tilde) ** 2
     g = coeff[:, None] * diff
-    np.add.at(grad, i, g)
-    np.add.at(grad, j, -g)
+    scatter_add(grad, np.concatenate([i, j]), np.concatenate([g, -g]))
 
 
 def _pair_grad_repel(
@@ -95,8 +95,7 @@ def _pair_grad_repel(
     d_tilde = 1.0 + np.einsum("ij,ij->i", diff, diff)
     coeff = -weight * 2.0 / (1.0 + d_tilde) ** 2
     g = coeff[:, None] * diff
-    np.add.at(grad, i, g)
-    np.add.at(grad, j, -g)
+    scatter_add(grad, np.concatenate([i, j]), np.concatenate([g, -g]))
 
 
 class PaCMAP(BaseEmbedding):

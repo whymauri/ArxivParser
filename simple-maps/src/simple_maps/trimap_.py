@@ -15,6 +15,7 @@ from __future__ import annotations
 import numpy as np
 
 from ._base import BaseEmbedding
+from ._scatter import scatter_add
 from .initialization import pca_init, random_init
 from .neighbors import knn
 from .optim import Adam
@@ -128,9 +129,11 @@ def _triplet_grad(
     g_ik = 2.0 * dl_dv[:, None] * yik
 
     grad = np.zeros_like(Y)
-    np.add.at(grad, i, g_ij + g_ik)
-    np.add.at(grad, j, -g_ij)
-    np.add.at(grad, k, -g_ik)
+    scatter_add(
+        grad,
+        np.concatenate([i, j, k]),
+        np.concatenate([g_ij + g_ik, -g_ij, -g_ik]),
+    )
     return grad, loss
 
 

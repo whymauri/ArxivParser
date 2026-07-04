@@ -14,6 +14,7 @@ from __future__ import annotations
 import numpy as np
 
 from ._base import BaseEmbedding
+from ._scatter import scatter_add
 from .initialization import pca_init, random_init
 from .neighbors import knn
 
@@ -169,8 +170,7 @@ def _optimize_layout(
         d2 = np.maximum(np.einsum("ij,ij->i", diff, diff), 1e-12)
         coeff = (-2.0 * a * b * d2 ** (b - 1.0)) / (a * d2**b + 1.0)
         grad = np.clip(coeff[:, None] * diff, -4.0, 4.0) * alpha
-        np.add.at(Y, h, grad)
-        np.add.at(Y, t, -grad)
+        scatter_add(Y, np.concatenate([h, t]), np.concatenate([grad, -grad]))
 
         # Repulsive updates against uniform negative samples; head only.
         neg = rng.integers(0, n, size=(h.shape[0], negative_sample_rate))
@@ -178,7 +178,7 @@ def _optimize_layout(
         d2n = np.maximum(np.einsum("ijk,ijk->ij", diff_n, diff_n), 1e-12)
         coeff_n = (2.0 * b) / ((0.001 + d2n) * (a * d2n**b + 1.0))
         grad_n = np.clip(coeff_n[:, :, None] * diff_n, -4.0, 4.0).sum(axis=1) * alpha
-        np.add.at(Y, h, grad_n)
+        scatter_add(Y, h, grad_n)
 
     return Y
 
